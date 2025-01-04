@@ -16,9 +16,169 @@ docker build -t multisweets .
 
 docker run -d -p 8080:80 --name multisweets-container multisweets
 
+//any terminal
 docker ps
 docker stop multisweets-container
 docker rm multisweets-container
 
-
+//run the code on image
 docker run -d -p 8080:80 --name multisweets-container multisweets
+
+================git==================================
+to push all the files updated
+git status
+git add .
+git commit -m "message inside"
+
+to get file from 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+right click --> git bash here then create new folder to git init
+
+Setting Up Git
+
+git init //Initialize a local(machien) repository:
+git clone  //clone or branch
+git remote add origin <remorte repository link> //add remote repository 
+git pull //Pull files from remote repository
+git pull = git fetch + git merge (here when we do git pull the changed all the files will directly pull into the master repository while
+ git fetch makes that index of the files as new branch then make sure we are adding git merge too)
+git push  //Push changes to remote repository:
+
+clear //clear the terminal
+msewwandi789@gmail.com
+
+
+making changes of files 
+
+git status // to check the status of the files 
+git add  // add one file 
+git add -A // add all files
+
+
+cat firstbranchfile.txt  //$ cat <filename.extention>
+to check what contain inside the file 
+
+
+
+
+git commit -m // Commit one file with a comment
+git commit -a -m // Commit all changes with a comment
+
+// its asking ypur name and email to before commit again and again should not add the name and email.
+git config user.name "sew"
+git config user.email "sewwandi@gmail.com"
+
+
+
+git log  // to check all the activities that have done (View all commit histor)
+
+
+branching(parallel development)
+       git branch firstBranch // creating brach 
+
+User@MSLiyanage MINGW64 /c/New folder (master)
+$ git branch firstBranch
+
+you can see i have created a new branch which name  "firstBranch".
+And we are still in main master branch  you can see the name (master).
+to switch to the firstBranch-->
+
+        git checkout firstBranch
+
+Switched to branch 'firstBranch'
+// this is not in a master branch itself but seperatly.
+so here we can add files to this 
+but it will not show in master branch
+(create new file and git add <file name>
+then commit git commit -m "type message here"
+by adding ls can see all the files belongs to the  branch and master branch
+but if we checkout to master and type ls the first branch file will not show)
+
+merging (combining branches)
+git merge <branch name>
+
+rebasing(another kind of merging) // can see the clear history
+git rebase <masterbranch>
+
+git push
+1.open git hub and goto profile icon --> setting --> SSH and GPH keys --> add new ssh key
+2.goto git terminal(go to master branch) and type 
+
+User@MSLiyanage MINGW64 /c/New folder (master)
+$ ssh-keygen -t rsa -b 4096 -C "msewwandi789@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/User/.ssh/id_rsa):
+Enter passphrase for "/c/Users/User/.ssh/id_rsa" (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/User/.ssh/id_rsa
+
+Your public key has been saved in /c/Users/User/.ssh/id_rsa.pub   (this is the key generated  file)
+
+
+The key fingerprint is:
+SHA256:LQ50Wg1f70lKEuMrBwm5TUVCWwaS0LxBriTfxBTw8qQ msewwandi789@gmail.com
+The key's randomart image is:
++---[RSA 4096]----+
+|    o**==+B .    |
+|     =*o.@ + .   |
+|  . o B** = . o  |
+|   + Xo+.o + + . |
+|    E = S + . o  |
+|       o +       |
+|        .        |
+|                 |
+|                 |
++----[SHA256]-----+
+
+
+then see what contain in that file then copy and paste ssh key(this key is for public one)
+
+User@MSLiyanage MINGW64 /c/New folder (master)
+$ cat /c/Users/User/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDEiPdaibZyUNGv01AAvvyddnG9KmVDIAAoKr7fHDm0Vy+IHl2IeSifHR9XfSHxGx+A80qDbm4I/EH3QaSUY36sTOo3vohiWoubxqiEzbHJXSr2DL8hhcoqKVBQnQ+FCbAEAMQ9vjvSnVXlOsM/QHaDV+9f/BAqw1YYbFFJkNFebvJCxjUxSl6JzwbQSWBKL6A4aN8sXjIzAYe39QuQJIz6SZH+gDZOueIZ6e0FHqytL39CuwRzCcNANZGf/1T7EkHvzBm2vxvLxWRr/kbHWJJZgzfUVaxytWtcWcJKKXDu2u8y11rPgF3QFBZQjioBvrLpsIA0iCMZxNETrAtJL29dJ5ahaCjewm4MgEakV3ttobP0cAlh+9RjU/PyTgxyOB2xPcCxM0KFXZcLUukFcmJolKHEFV6vsKxb0UO9TDG2HR5zJlHCHQPWgXHgYbItdDuUPyDmyxTu1474arl6MxEnMEsF/HnFhS3xTyebZKZ3TwRchZVLR0tnivm43PwRIjCuQpH6dUiiQ6gFh7Xo3GrDv3wWS+3kOubrsnCMRJlnP12mqe0Bs9KpAeQpiRP4of5V4s4a7EsMaC8GTn6XNhvcTHLlC9GIbQ/iGD40j36R7YeYIABZ13RTay5zXRDkHKRgrKEZJ/Ti0l6ufBEWJxKDYNw9CGn8GhGSsPmUK7ii0Q== msewwandi789@gmail.com
+
+
+then type 
+
+User@MSLiyanage MINGW64 /c/New folder (master)
+$ ssh -T git@github.com
+The authenticity of host 'github.com (20.205.243.166)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+
+
+to back the work
+commit 1st 8 letters after the adding--> git log--> so then type--> cat filename.txt --> can see the prevous version

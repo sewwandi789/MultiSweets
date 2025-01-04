@@ -1,6 +1,6 @@
 <?php
 // Include your database connection file
-include_once '../index/dbconfig.php';
+include_once 'dbconfig.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve and sanitize form data

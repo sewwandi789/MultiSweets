@@ -1,6 +1,6 @@
 <?php
 // Include database connection
-include_once '../index/dbconfig.php';
+include_once '../query/dbconfig.php';
 
 // Add Food Item
 if (isset($_POST['add_food'])) {

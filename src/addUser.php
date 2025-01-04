@@ -1,5 +1,5 @@
 <?php
-include_once '../index/dbconfig.php';
+include_once '../query/dbconfig.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize and validate form data

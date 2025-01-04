@@ -1,6 +1,6 @@
 <?php
 // Include database configuration
-include_once './index/dbconfig.php';
+include_once './query/dbconfig.php';
 
 // Fetch Menu Items
 $offers = [];

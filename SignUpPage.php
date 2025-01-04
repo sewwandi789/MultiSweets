@@ -1,6 +1,6 @@
 <?php
 // Include the database configuration file
-include_once '../index/dbconfig.php';
+include_once 'dbconfig.php';
 
 // Initialize variables for messages
 $alertMessage = '';

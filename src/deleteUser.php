@@ -1,5 +1,5 @@
 <?php
-include_once '../index/dbconfig.php';
+include_once '../query/dbconfig.php';
 
 if (isset($_GET['id'])) {
     $userId = $_GET['id'];
@@ -9,9 +9,9 @@ if (isset($_GET['id'])) {
     if ($stmt = $conn->prepare($sql)) {
         $stmt->bind_param("i", $userId);
         if ($stmt->execute()) {
-            echo "User deleted successfully!";
-            header("Location: viewUsers.php"); // Redirect after deletion
-            exit;
+            // Redirect after deletion (before any output)
+            header("Location: userView.php"); // Redirect after deletion
+            exit; // Ensure no further code is executed
         } else {
             echo "Error deleting user: " . $stmt->error;
         }
@@ -25,3 +25,4 @@ if (isset($_GET['id'])) {
     echo "User ID is required!";
 }
 ?>
+

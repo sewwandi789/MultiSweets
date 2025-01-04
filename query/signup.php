@@ -1,5 +1,5 @@
 <?php
-include_once '../index/dbconfig.php';
+include_once 'dbconfig.php';
 
 // Initialize variables for messages
 $alertMessage = '';

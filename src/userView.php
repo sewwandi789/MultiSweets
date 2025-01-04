@@ -286,8 +286,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        include_once '../index/dbconfig.php';
-
+                        include_once '../query/dbconfig.php';
                         $sql = "SELECT id, name, email ,role FROM users";
                         $result = $conn->query($sql);
 

@@ -1,6 +1,6 @@
 <?php
 // Include your database connection file
-include_once '../index/dbconfig.php';
+include_once '../query/dbconfig.php';
 
 // Initialize filter variables
 $filter_status = isset($_GET['status']) ? $_GET['status'] : 'all';
@@ -64,9 +64,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_delete = $conn->prepare($sql_delete);
         $stmt_delete->bind_param("i", $id);
         if ($stmt_delete->execute()) {
-            echo "<script>alert('Notification deleted'); window.location.reload();</script>";
+            header("Location: notificationView.php"); // Redirect after deletion
+            exit; // Ensure no further code is executed
         } else {
             echo "<script>alert('Error deleting notification');</script>";
+            exit;
         }
         $stmt_delete->close();
     }

@@ -1,5 +1,5 @@
 <?php
-include_once '../index/dbconfig.php';
+include_once '../query/dbconfig.php';
 
 if (isset($_GET['id'])) {
     $userId = $_GET['id'];

@@ -1,6 +1,7 @@
 <?php
+include_once 'dbconfig.php';
 
-include_once '../index/dbconfig.php';
+//include_once __DIR__ . '/../index/dbconfig.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = strtolower(trim($_POST['email'])); // Sanitize and normalize the email

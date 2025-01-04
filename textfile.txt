@@ -29,8 +29,16 @@ to push all the files updated
 git status
 git add .
 git commit -m "message inside"
+git push
+ 
+to remove  file from git hub & locally
+git rm --cached <file-name>
+test1toremove.txt
+git push origin master
 
-to get file from 
+to remove  file from git hub & locally
+git rm <file-name> //will keep locally
+git push origin master
 
 
 

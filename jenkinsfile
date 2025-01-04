@@ -1,1 +1,82 @@
 
+pipeline {
+    agent any
+
+    environment {
+        // Set environment variables if necessary, like your database credentials
+        DB_USER = 'root'
+        DB_PASSWORD = ''
+        DB_NAME = 'multisweets'
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                // Pull the latest code from your repository
+                git 'https://github.com/sewwandi789/MultiSweets.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    // Install PHP dependencies using Composer if applicable
+                    sh 'composer install'
+                    
+                    // Install MySQL client if needed (for database migrations)
+                    sh 'sudo apt-get install mysql-client'
+                }
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                script {
+                    // Run PHP unit tests (if you have PHP Unit tests)
+                    sh 'phpunit --configuration phpunit.xml'
+                    
+                    // You can also run other tests if necessary
+                }
+            }
+        }
+
+        stage('Deploy to Staging') {
+            steps {
+                script {
+                    // Deploy the PHP application to your staging server (using SCP or FTP)
+                    sh 'scp -r * user@staging-server:/var/www/html/my-php-app'
+                    
+                    // Run any database migrations if necessary
+                    sh """
+                    mysql -u $DB_USER -p $DB_PASSWORD $DB_NAME < /multisweets.sql
+                    """
+                }
+            }
+        }
+
+        stage('Deploy to Production') {
+            steps {
+                script {
+                    // Deploy the PHP application to your production server
+                    sh 'scp -r * user@production-server:/var/www/html/my-php-app'
+                    
+                    // Run database migrations for production if needed
+                    sh """
+                    mysql -u $DB_USER -p$DB_PASSWORD $DB_NAME < /path/to/migration.sql
+                    """
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            // Notify that the pipeline was successful (you can use Slack, Email, etc.)
+            echo "Pipeline succeeded!"
+        }
+        failure {
+            // Notify that the pipeline failed
+            echo "Pipeline failed!"
+        }
+    }
+}
